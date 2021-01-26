@@ -1,13 +1,17 @@
 import React from 'react'
 import Menu from 'components/Menu'
+import Header from 'components/Header'
 
 const Dashboard = () => {
   return (
-    <main role='main'>
+    <div className='dashboard'>
+      <Header />
       <Menu />
-      <div>Content</div>
+      <main role='main'>
+        <div>Content</div>
+      </main>
       <footer>Footer</footer>
-    </main>
+    </div>
   )
 }
 

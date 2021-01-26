@@ -1,8 +1,13 @@
 import './App.css'
 import Dashboard from 'components/Dashboard'
+import { GlobalContextProvider } from './contexts/Global'
 
 function App() {
-  return <Dashboard />
+  return (
+    <GlobalContextProvider>
+      <Dashboard />
+    </GlobalContextProvider>
+  )
 }
 
 export default App

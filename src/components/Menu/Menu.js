@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {
   Collapse,
   Navbar,
@@ -13,9 +13,11 @@ import {
   DropdownItem,
   NavbarText,
 } from 'reactstrap'
+import { GlobalContext } from 'contexts/Global'
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const { dashboardState } = useContext(GlobalContext)
 
   const toggle = () => setIsOpen(!isOpen)
 
@@ -46,7 +48,7 @@ const Menu = () => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+          <NavbarText>{dashboardState.mode}</NavbarText>
         </Collapse>
       </Navbar>
     </>
