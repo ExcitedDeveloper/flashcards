@@ -9,6 +9,7 @@
     "plugin:react/recommended",
     "wesbos"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -29,6 +30,10 @@
     //"semi": "off",
     "no-use-before-define": "off",
     "prettier/prettier": ["error"],
-    "semicolon": ["off", "never", "ignore-interfaces"]
+    "semicolon": ["off", "never", "ignore-interfaces"],
+    "react/jsx-filename-extension": [
+      2,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ]
   }
 }
