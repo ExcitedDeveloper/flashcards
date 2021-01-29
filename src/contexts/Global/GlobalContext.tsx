@@ -1,7 +1,11 @@
 import React, { createContext } from 'react'
 import useDashboardReducer from 'reducers/useDashboardReducer'
+import PropTypes from 'prop-types'
+import { DashboardState, DashboardAction, ContextProps } from 'typings/dashboard';
 
-export const Context = createContext()
+
+
+export const Context = createContext({} as ContextProps)
 
 export const Provider = ({ children }) => {
   const [dashboardState, dashboardDispatch] = useDashboardReducer()
@@ -11,6 +15,10 @@ export const Provider = ({ children }) => {
       {children}
     </Context.Provider>
   )
+}
+
+Provider.propTypes = {
+  children: PropTypes.node,
 }
 
 export const { Consumer } = Context
