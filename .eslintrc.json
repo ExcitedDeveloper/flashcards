@@ -28,7 +28,7 @@
   "rules": {
     //"semi": "off",
     "no-use-before-define": "off",
-    "prettier/prettier": ["error"]
-    //"semicolon": [false, "never", "ignore-interfaces"]
+    "prettier/prettier": ["error"],
+    "semicolon": ["off", "never", "ignore-interfaces"]
   }
 }
