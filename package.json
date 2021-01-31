@@ -33,8 +33,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged --allow-empty",
-      "post-commit": "git update-index --again",
-      "pre-push": "npm run test:wdio && npm run test:nowatch"
+      "post-commit": "git update-index --again"
     }
   },
   "lint-staged": {
