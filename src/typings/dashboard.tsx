@@ -1,7 +1,8 @@
-import { Dispatch } from 'react';
+import { Dispatch } from 'react'
 import { NullableString } from './global'
 
 export interface DashboardAction {
+  type: string | number | symbol
   mode?: NullableString
 }
 

@@ -48,7 +48,7 @@ const Menu = () => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText>{dashboardState.mode}</NavbarText>
+          <NavbarText>{dashboardState?.mode}</NavbarText>
         </Collapse>
       </Navbar>
     </>
