@@ -8,6 +8,35 @@ const Menu = () => {
     }
   }
 
+  const toggleSubMenu = (subMenuId: string) => {
+    console.log(`toggle ${subMenuId}`)
+    // First close any open submenus
+    const submenus = document.getElementsByClassName('submenu')
+
+    if (submenus) {
+      Array.from(submenus).forEach(submenu =>
+        submenu.setAttribute('display', 'none')
+      )
+    }
+
+    // Now toggle the desired menu
+    const menu = document.getElementById(subMenuId)
+
+    console.log(`toggle 1`)
+    if (!menu) return
+
+    const { display } = menu.style
+    console.log(`toggle 2 display = ${display}`)
+
+    if (display === 'none' || !display) {
+      console.log(`toggle 3`)
+      menu.style.display = 'flex'
+    } else {
+      console.log(`toggle 4`)
+      menu.style.display = 'none'
+    }
+  }
+
   return (
     <nav className="flex flex-wrap items-center justify-between bg-blue-200">
       <div className="flex md:hidden">
@@ -32,9 +61,14 @@ const Menu = () => {
         <a
           href="#"
           className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none"
+          onClick={() => toggleSubMenu('fileMenu')}
         >
           File
         </a>
+        <div id="fileMenu" className="hidden flex-col">
+          <div>Save</div>
+          <div>Save As</div>
+        </div>
         <a
           href="#"
           className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none"

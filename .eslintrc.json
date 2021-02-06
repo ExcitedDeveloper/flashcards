@@ -29,7 +29,7 @@
   "rules": {
     //"semi": "off",
     "no-use-before-define": "off",
-    "prettier/prettier": ["error"],
+    "prettier/prettier": ["warn"],
     "semicolon": ["off", "never", "ignore-interfaces"],
     "react/jsx-filename-extension": [
       2,
