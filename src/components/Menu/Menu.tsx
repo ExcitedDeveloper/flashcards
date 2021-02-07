@@ -59,10 +59,10 @@ const Menu = () => {
         </button>
       </div>
       <div className="toggle hidden md:flex w-full md:w-auto text-right text-bold md:mt-0 border-t-2 border-blue-900 md:border-none">
-        <div className="dropdown inline-block relative">
+        <div className="dropdown xs:inline-block lg:flex relative items-center">
           <button
             type="button"
-            className="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center"
+            className="text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center"
           >
             <span className="mr-1">Dropdown</span>
             <svg
@@ -102,18 +102,18 @@ const Menu = () => {
         </div>
         <a
           href="#"
-          className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none"
+          className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none font-semibold"
         >
           Options
         </a>
         <a
           href="#"
-          className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none"
+          className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none font-semibold"
         >
           Help
         </a>
       </div>
-      <p className="text-blue-900 pr-3">Card List</p>
+      <p className="text-blue-900 pr-3 font-semibold">Card List</p>
     </nav>
   )
 }
