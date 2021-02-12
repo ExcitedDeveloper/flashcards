@@ -1,5 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './Menu.css'
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Form,
+  Button,
+  FormControl,
+} from 'react-bootstrap'
 
 const Menu = () => {
   const toggleMenu = () => {
@@ -39,118 +47,31 @@ const Menu = () => {
   }
 
   return (
-    <nav className="flex flex-wrap items-center justify-between bg-blue-200">
-      <div className="flex md:hidden">
-        <button id="hamburger" type="button" onClick={toggleMenu}>
-          <img
-            className="toggle block"
-            src="https://img.icons8.com/fluent-systems-regular/2x/menu-squared-2.png"
-            width="40"
-            height="40"
-            alt="toggle show"
-          />
-          <img
-            className="toggle hidden"
-            src="https://img.icons8.com/fluent-systems-regular/2x/close-window.png"
-            width="40"
-            height="40"
-            alt="toggle hide"
-          />
-        </button>
-      </div>
-      <div className="toggle hidden md:flex w-full md:w-auto text-right text-bold md:mt-0 border-t-2 border-blue-900 md:border-none">
-        <div className="dropdown xs:inline-block lg:flex relative items-center">
-          <button
-            type="button"
-            className="text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center"
-          >
-            <span className="mr-1">File</span>
-            <svg
-              className="fill-current h-4 w-4"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-            >
-              <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />{' '}
-            </svg>
-          </button>
-          <ul className="dropdown-menu absolute hidden text-gray-700 p-0 divide-y divide-gray-700">
-            <li className="">
-              <ul>
-                <li>
-                  <a
-                    className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                    href="#"
-                  >
-                    New
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                    href="#"
-                  >
-                    Open
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li className="">
-              <ul>
-                <li>
-                  <a
-                    className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                    href="#"
-                  >
-                    Save
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                    href="#"
-                  >
-                    Save As
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li className="">
-              <ul>
-                <li>
-                  <a
-                    className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                    href="#"
-                  >
-                    Import
-                  </a>
-                </li>
-                <li>
-                  <a
-                    className="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
-                    href="#"
-                  >
-                    Export
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        <a
-          href="#"
-          className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none font-semibold"
-        >
-          Options
-        </a>
-        <a
-          href="#"
-          className="block md:inline-block text-blue-900 hover:text-blue-500 px-3 py-3 border-b-2 border-blue-900 md:border-none font-semibold"
-        >
-          Help
-        </a>
-      </div>
-      <p className="text-blue-900 pr-3 font-semibold">Card List</p>
-    </nav>
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="#home">Home</Nav.Link>
+          <Nav.Link href="#link">Link</Nav.Link>
+          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">
+              Another action
+            </NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4">
+              Separated link
+            </NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+        <Form inline>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          <Button variant="outline-success">Search</Button>
+        </Form>
+      </Navbar.Collapse>
+    </Navbar>
   )
 }
 

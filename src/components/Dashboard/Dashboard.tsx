@@ -6,7 +6,7 @@ const Dashboard = () => (
   <div className="dashboard">
     <Header />
     <Menu />
-    <main role="main">
+    <main role="main" className="flex-1">
       <div>Content</div>
     </main>
     <footer>Footer</footer>

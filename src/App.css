@@ -1,8 +1,8 @@
 .dashboard {
   height: 100vh;
   min-height: 100%;
-  display: grid;
-  grid-template-rows: auto auto 1fr auto;
+  display: flex;
+  flex-direction: column;
   padding: 5px;
 }
 
@@ -19,4 +19,8 @@ footer {
   padding: 5px;
   background-color: #45a1ff;
   color: #fff;
+}
+
+.flex-1 {
+  flex: 1;
 }
