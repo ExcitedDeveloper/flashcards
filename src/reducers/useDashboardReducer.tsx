@@ -1,5 +1,6 @@
 import { useReducer, Dispatch } from 'react'
 import { DashboardState, DashboardAction } from 'typings/dashboard'
+import { MODE, DASHBOARD_ACTIONS } from 'util/enums'
 
 const useDashboardReducer = (): [DashboardState, Dispatch<DashboardAction>] => {
   const [state, dispatch] = useReducer(reducer, initState)
@@ -10,47 +11,27 @@ const reducer = (
   state: DashboardState,
   action: DashboardAction
 ): DashboardState => {
-  if (!isActionString(action.type)) {
-    throw new Error(`useDashboardReducer action is not a string`)
+  switch (action.type) {
+    case DASHBOARD_ACTIONS.MODE:
+      return {
+        ...state,
+        mode: action.mode,
+      }
+    case DASHBOARD_ACTIONS.FILE_NAME:
+      return {
+        ...state,
+        fileName: action.fileName,
+      }
+    default:
+      throw new Error(
+        `Unknown useDashboardReducer action = ${String(action.type)}`
+      )
   }
-  if (Object.prototype.hasOwnProperty.call(actionsMap, action.type)) {
-    return isActionString(action.type)
-      ? actionsMap[action.type](state, action)
-      : state
-  }
-  throw new Error(`Unknown useDashboardReducer action = ${action.type}`)
 }
-
-const actionsMap = {} as SymbolMap
-
-actionsMap.MODE = (
-  state: DashboardState,
-  action: DashboardAction
-): DashboardState => ({
-  ...state,
-  mode: action.mode,
-})
 
 const initState = {
-  mode: 'Card List',
+  mode: MODE.LIST,
+  fileName: '',
 }
-
-// https://www.typescriptlang.org/docs/handbook/advanced-types.html#type-guards-and-differentiating-types
-const isActionString = (type: string | number | symbol): type is string =>
-  (type as string) !== undefined
-
-// https://stackoverflow.com/questions/59118271/using-symbol-as-object-key-type-in-typescript
-type SymbolMapTag = { readonly symbol: unique symbol }
-
-type SymbolMap = SymbolMapTag &
-  {
-    // eslint-disable-next-line no-unused-vars
-    [Key in string | number | symbol]: (
-      // eslint-disable-next-line no-unused-vars
-      state: DashboardState,
-      // eslint-disable-next-line no-unused-vars
-      action: DashboardAction
-    ) => DashboardState
-  }
 
 export default useDashboardReducer
