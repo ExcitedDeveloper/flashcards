@@ -5,15 +5,19 @@ import { GlobalContext } from 'contexts/Global'
 
 const CardList = () => {
   const { browserWidth, browserHeight } = useContext(GlobalContext)
-  const [gridParams, setGridParams] = useState<any>(null)
+  const [gridApi, setGridApi] = useState<any>(null)
 
   useEffect(() => {
-    gridParams?.api?.sizeColumnsToFit()
-  }, [gridParams, browserWidth, browserHeight])
+    gridApi?.sizeColumnsToFit()
+  }, [gridApi, browserWidth, browserHeight])
 
   const onGridReady = (params: any) => {
-    setGridParams(params)
+    setGridApi(params.api)
     params.api.sizeColumnsToFit()
+  }
+
+  const onModelUpdated = () => {
+    gridApi?.sizeColumnsToFit()
   }
 
   const columnDefs = [
@@ -63,7 +67,7 @@ const CardList = () => {
   ]
 
   return (
-    <div className="h-100 w-100 ag-theme-alpine">
+    <div className="h-100 ag-theme-alpine" style={{ minHeight: '300px' }}>
       <AgGridReact
         // properties
         columnDefs={columnDefs}
@@ -72,6 +76,7 @@ const CardList = () => {
         defaultColDef={{ filter: true }}
         // events
         onGridReady={onGridReady}
+        onModelUpdated={onModelUpdated}
       />
     </div>
   )

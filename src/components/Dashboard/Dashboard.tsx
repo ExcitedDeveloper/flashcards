@@ -10,7 +10,7 @@ const Dashboard = () => (
   <div className="dashboard">
     <Header />
     <Menu />
-    <main role="main" className="flex-1">
+    <main role="main" className="flex-1 overflow-y-hidden">
       <Router>
         <Switch>
           <Route path="/add">

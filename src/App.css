@@ -24,3 +24,14 @@ footer {
 .flex-1 {
   flex: 1;
 }
+
+.ag-body-viewport.ag-layout-normal {
+  overflow-y: auto !important;
+}
+
+.ag-center-cols-container {
+}
+
+.overflow-y-hidden {
+  overflow-y: hidden;
+}
