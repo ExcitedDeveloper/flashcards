@@ -1,16 +1,19 @@
 import React, { createContext } from 'react'
 import useDashboardReducer from 'reducers/useDashboardReducer'
 import PropTypes from 'prop-types'
-import { ContextProps } from 'typings/dashboard'
-import { ChildrenProps } from 'typings/global.d'
+import { ChildrenProps, GlobalContextProps } from 'typings/global.d'
+import useBrowserSize from 'hooks/useBrowserSize'
 
-export const Context = createContext<Partial<ContextProps>>({})
+export const Context = createContext<Partial<GlobalContextProps>>({})
 
 export const Provider = ({ children }: ChildrenProps) => {
   const [dashboardState, dashboardDispatch] = useDashboardReducer()
+  const { browserWidth, browserHeight } = useBrowserSize()
 
   return (
-    <Context.Provider value={{ dashboardState, dashboardDispatch }}>
+    <Context.Provider
+      value={{ dashboardState, dashboardDispatch, browserHeight, browserWidth }}
+    >
       {children}
     </Context.Provider>
   )
