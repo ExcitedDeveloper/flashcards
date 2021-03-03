@@ -25,11 +25,9 @@ footer {
   flex: 1;
 }
 
-.ag-body-viewport.ag-layout-normal {
+.ag-body-viewport {
   overflow-y: auto !important;
-}
-
-.ag-center-cols-container {
+  min-height: 100px;
 }
 
 .overflow-y-hidden {
