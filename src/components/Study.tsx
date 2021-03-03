@@ -1,5 +1,5 @@
 import React from 'react'
 
-const Study = () => <div>Study</div>
+const Study = (): JSX.Element => <div>Study</div>
 
 export default Study

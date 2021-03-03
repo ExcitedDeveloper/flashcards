@@ -1,5 +1,5 @@
 import React from 'react'
 
-const Header = () => <div>JavaScriptQuestions - Flashcards</div>
+const Header = (): JSX.Element => <div>JavaScriptQuestions - Flashcards</div>
 
 export default Header

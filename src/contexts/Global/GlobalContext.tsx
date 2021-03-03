@@ -6,7 +6,7 @@ import useBrowserSize from 'hooks/useBrowserSize'
 
 export const Context = createContext<Partial<GlobalContextProps>>({})
 
-export const Provider = ({ children }: ChildrenProps) => {
+export const Provider = ({ children }: ChildrenProps): JSX.Element => {
   const [dashboardState, dashboardDispatch] = useDashboardReducer()
   const { browserWidth, browserHeight } = useBrowserSize()
 

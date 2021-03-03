@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react'
 
-const useBrowserSize = () => {
+interface UseBrowserSizeProps {
+  browserHeight: number
+  browserWidth: number
+}
+
+const useBrowserSize = (): UseBrowserSizeProps => {
   const [browserWidth, setBrowserWidth] = useState(window.innerWidth)
   const [browserHeight, setBrowserHeight] = useState(window.innerHeight)
 

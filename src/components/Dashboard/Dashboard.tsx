@@ -6,7 +6,7 @@ import AddCard from 'components/AddCard'
 import Study from 'components/Study'
 import CardList from 'components/CardList'
 
-const Dashboard = () => (
+const Dashboard = (): JSX.Element => (
   <div className="dashboard">
     <Header />
     <Menu />

@@ -31,7 +31,7 @@ const reducer = (
 
 const initState = {
   mode: MODE.LIST,
-  fileName: '',
+  fileName: 'JavaScriptQuestions',
 }
 
 export default useDashboardReducer

@@ -1,15 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './Menu.css'
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  Button,
-  FormControl,
-} from 'react-bootstrap'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
-const Menu = () => (
+const Menu = (): JSX.Element => (
   <Navbar bg="light" expand="lg">
     <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />

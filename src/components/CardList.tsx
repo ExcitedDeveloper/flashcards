@@ -2,15 +2,25 @@ import React, { useEffect, useState, useContext } from 'react'
 import { AgGridReact } from '@ag-grid-community/react'
 import { AllModules } from '@ag-grid-enterprise/all-modules'
 import { GlobalContext } from 'contexts/Global'
+import useFlashcards from 'hooks/useFlashcards'
 
-const CardList = () => {
-  const { browserWidth, browserHeight } = useContext(GlobalContext)
+const CardList = (): JSX.Element => {
+  const { browserWidth, browserHeight, dashboardState } = useContext(
+    GlobalContext
+  )
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [gridApi, setGridApi] = useState<any>(null)
+  const { flashCards, setFileName } = useFlashcards()
+
+  useEffect(() => {
+    setFileName(dashboardState?.fileName || '')
+  }, [dashboardState?.fileName, setFileName])
 
   useEffect(() => {
     gridApi?.sizeColumnsToFit()
   }, [gridApi, browserWidth, browserHeight])
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onGridReady = (params: any) => {
     setGridApi(params.api)
     params.api.sizeColumnsToFit()
@@ -41,7 +51,8 @@ const CardList = () => {
     },
   ]
 
-  const rowData = [
+  /*
+  const flashCards = [
     {
       question: 'Why use a left join?',
       answer:
@@ -155,13 +166,14 @@ const CardList = () => {
       history: '',
     },
   ]
+  */
 
   return (
     <div className="h-100 w-100 ag-theme-alpine" style={{ height: '300px' }}>
       <AgGridReact
         // properties
         columnDefs={columnDefs}
-        rowData={rowData}
+        rowData={flashCards}
         modules={AllModules}
         defaultColDef={{ filter: true }}
         // events
