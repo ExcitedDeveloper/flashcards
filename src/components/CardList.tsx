@@ -24,14 +24,20 @@ const CardList = () => {
     {
       field: 'question',
       headerName: 'Question',
+      resizable: true,
+      sortable: true,
     },
     {
       field: 'answer',
       headerName: 'Answer',
+      resizable: true,
+      sortable: true,
     },
     {
       field: 'score',
       headerName: 'Score',
+      resizable: true,
+      sortable: true,
     },
   ]
 
